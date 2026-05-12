@@ -1,0 +1,36 @@
+{
+  "name": "@salom/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dastur vaqtida: `npm run dev` (HMR). `npm start` / `next start` — faqat `build` dan keyin; kod o'zgartirsangiz qayta `build` kerak, bo'lmasa Internal Error yoki noto'g'ri .next bo'lishi mumkin.",
+  "scripts": {
+    "clean": "rm -rf .next",
+    "dev": "next dev -p 3001 --turbopack",
+    "dev:clean": "npm run clean && next dev -p 3001 --turbopack",
+    "dev:webpack": "next dev -p 3001",
+    "dev:turbo": "next dev -p 3001 --turbopack",
+    "build": "next build",
+    "prestart": "node -e \"if (!process.env.CI && !process.env.SKIP_WEB_PRESTART) console.warn('\\n[Salom web] Dastur: npm run dev (HMR, qayta ishga tushirish shart emas).\\n            Production: npm start - kod o\\'zgartirsangiz avval npm run build, bo\\'lmasa Internal Error.\\n')\"",
+    "start": "next start -p 3001",
+    "start:prod": "npm run clean && npm run build && next start -p 3001",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.23.0",
+    "next": "15.5.15",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "socket.io-client": "^4.8.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.15",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

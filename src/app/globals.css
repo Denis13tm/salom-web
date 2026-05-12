@@ -1,0 +1,348 @@
+@import "tailwindcss";
+
+/* ─── Salom brand tokens ───────────────────────────────────────── */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-raised: #f1f5f9;
+  --border: #d1fae5;
+  --border-subtle: #e2e8f0;
+  --muted: #64748b;
+
+  --salom-lime: #89f336;
+  --salom-dark-green: #0d5a2e;
+  --salom-green-mid: #166d3a;
+  --salom-jet: #0c0f14;
+
+  /* Semantic accent: operator uses emerald, admin uses violet */
+  --accent-operator: #059669;
+  --accent-admin: #7c3aed;
+}
+
+/* ─── Dark mode tokens ─────────────────────────────────────────── */
+:root[data-theme="dark"] {
+  --background: #080f0b;
+  --foreground: #e8f5ed;
+  --surface: #0e1a13;
+  --surface-raised: #132019;
+  --border: #1a3327;
+  --border-subtle: #1e2d25;
+  --muted: #7aab8e;
+}
+
+/* ─── Tailwind theme bridge ────────────────────────────────────── */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+@layer base {
+  nav[aria-label] svg {
+    width: 1rem;
+    height: 1rem;
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+    flex-shrink: 0;
+  }
+}
+
+/* ─── Body / background mesh ───────────────────────────────────── */
+body {
+  @apply min-h-screen antialiased;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 50% -15%, rgba(137, 243, 54, 0.14), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(13, 90, 46, 0.10), transparent 45%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #f1f5f9 100%);
+  background-attachment: fixed;
+}
+
+:root[data-theme="dark"] body {
+  background-image:
+    radial-gradient(ellipse 90% 70% at 50% -15%, rgba(137, 243, 54, 0.07), transparent 50%),
+    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(22, 109, 58, 0.16), transparent 45%),
+    linear-gradient(180deg, #080f0b 0%, #0a1410 60%, #050807 100%);
+}
+
+/* ─── Dark mode surface overrides ──────────────────────────────── */
+:root[data-theme="dark"] .bg-white,
+:root[data-theme="dark"] .bg-white\/80,
+:root[data-theme="dark"] .bg-white\/90,
+:root[data-theme="dark"] .bg-white\/95 {
+  background-color: var(--surface) !important;
+}
+
+:root[data-theme="dark"] .bg-slate-50,
+:root[data-theme="dark"] .bg-slate-50\/60,
+:root[data-theme="dark"] .bg-slate-50\/80 {
+  background-color: var(--surface-raised) !important;
+}
+
+:root[data-theme="dark"] .bg-violet-50\/90,
+:root[data-theme="dark"] .bg-violet-50\/70,
+:root[data-theme="dark"] .bg-violet-50\/80,
+:root[data-theme="dark"] .bg-emerald-50\/90 {
+  background-color: rgba(14, 26, 19, 0.95) !important;
+}
+
+/* ─── Dark mode text ───────────────────────────────────────────── */
+:root[data-theme="dark"] .text-slate-900,
+:root[data-theme="dark"] .text-violet-950,
+:root[data-theme="dark"] .text-emerald-950 {
+  color: var(--foreground) !important;
+}
+
+:root[data-theme="dark"] .text-slate-800 {
+  color: #d8efe3 !important;
+}
+
+:root[data-theme="dark"] .text-slate-700 {
+  color: #b2cfbf !important;
+}
+
+:root[data-theme="dark"] .text-slate-600,
+:root[data-theme="dark"] .text-slate-500 {
+  color: var(--muted) !important;
+}
+
+:root[data-theme="dark"] .text-violet-700,
+:root[data-theme="dark"] .text-violet-800\/90 {
+  color: #c4b5fd !important;
+}
+
+:root[data-theme="dark"] .text-violet-700\/80 {
+  color: rgba(196, 181, 253, 0.8) !important;
+}
+
+:root[data-theme="dark"] .text-violet-600\/80 {
+  color: rgba(167, 139, 250, 0.9) !important;
+}
+
+/* ─── Dark mode borders ────────────────────────────────────────── */
+:root[data-theme="dark"] .border-slate-200,
+:root[data-theme="dark"] .border-slate-200\/80,
+:root[data-theme="dark"] .border-slate-200\/90 {
+  border-color: var(--border-subtle) !important;
+}
+
+:root[data-theme="dark"] .border-emerald-200\/90,
+:root[data-theme="dark"] .border-emerald-200\/80,
+:root[data-theme="dark"] .border-emerald-200\/65 {
+  border-color: var(--border) !important;
+}
+
+:root[data-theme="dark"] .border-violet-200\/60,
+:root[data-theme="dark"] .border-violet-200\/80 {
+  border-color: rgba(76, 29, 149, 0.3) !important;
+}
+
+:root[data-theme="dark"] .border-violet-200\/70 {
+  border-color: rgba(91, 33, 182, 0.3) !important;
+}
+
+/* ─── Dark mode inputs / selects / textareas ───────────────────── */
+:root[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+  background-color: var(--surface-raised) !important;
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: var(--muted) !important;
+}
+
+/* ─── Dark mode admin sidebar ──────────────────────────────────── */
+:root[data-theme="dark"] .salom-sidebar-admin {
+  background: linear-gradient(180deg, #10061e 0%, #0a0014 100%) !important;
+  border-color: rgba(109, 40, 217, 0.25) !important;
+}
+
+:root[data-theme="dark"] .salom-sidebar-brand-label {
+  color: #a78bfa !important;
+}
+
+:root[data-theme="dark"] .salom-sidebar-brand-sub {
+  color: rgba(148, 163, 184, 0.7) !important;
+}
+
+:root[data-theme="dark"] .salom-nav-item {
+  color: #94a3b8 !important;
+}
+
+:root[data-theme="dark"] .salom-nav-item:hover {
+  background-color: rgba(139, 92, 246, 0.12) !important;
+  color: #c4b5fd !important;
+}
+
+:root[data-theme="dark"] .salom-nav-active-admin {
+  background-color: rgba(139, 92, 246, 0.2) !important;
+  color: #ddd6fe !important;
+  ring-color: rgba(139, 92, 246, 0.35) !important;
+}
+
+/* ─── Dark mode header / chrome ────────────────────────────────── */
+:root[data-theme="dark"] header.sticky {
+  background-color: rgba(8, 15, 11, 0.92) !important;
+  border-color: var(--border) !important;
+}
+
+:root[data-theme="dark"] .salom-chrome-title {
+  color: var(--foreground) !important;
+}
+
+:root[data-theme="dark"] .salom-chrome-sub {
+  color: var(--muted) !important;
+}
+
+:root[data-theme="dark"] .salom-dispatch-btn {
+  background-color: rgba(5, 46, 22, 0.6) !important;
+  color: #86efac !important;
+}
+
+:root[data-theme="dark"] .salom-home-btn {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--border-subtle) !important;
+  color: #94a3b8 !important;
+}
+
+:root[data-theme="dark"] .dark-mode-select {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+/* ─── Dark mode cards / stat tiles ────────────────────────────── */
+:root[data-theme="dark"] .salom-stat-card {
+  background-color: var(--surface) !important;
+  border-color: rgba(109, 40, 217, 0.25) !important;
+}
+
+:root[data-theme="dark"] .salom-stat-value {
+  color: var(--foreground) !important;
+}
+
+:root[data-theme="dark"] .salom-pricing-note {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--muted) !important;
+}
+
+/* ─── Dark mode alert banners ─────────────────────────────────── */
+:root[data-theme="dark"] .salom-alert-warn {
+  background-color: rgba(120, 53, 15, 0.25) !important;
+  border-color: rgba(180, 83, 9, 0.4) !important;
+  color: #fcd34d !important;
+}
+
+:root[data-theme="dark"] .salom-alert-error {
+  background-color: rgba(127, 29, 29, 0.25) !important;
+  border-color: rgba(185, 28, 28, 0.4) !important;
+  color: #fca5a5 !important;
+}
+
+:root[data-theme="dark"] .salom-alert-ok {
+  background-color: rgba(6, 78, 59, 0.25) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #6ee7b7 !important;
+}
+
+/* ─── Dark mode body-muted text ───────────────────────────────── */
+:root[data-theme="dark"] .salom-body-muted {
+  color: var(--muted) !important;
+}
+
+/* ─── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background: rgba(137, 243, 54, 0.4);
+  color: #0f172a;
+}
+
+/* ─── Focus ring ─────────────────────────────────────────────────── */
+a:focus-visible {
+  @apply rounded outline outline-2 outline-lime-400/80 outline-offset-2;
+}
+
+/* ─── Map controls ───────────────────────────────────────────────── */
+.maplibregl-ctrl button {
+  border-radius: 8px !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 90, 46, 0.3) transparent;
+}
+
+:root[data-theme="dark"] * {
+  scrollbar-color: rgba(137, 243, 54, 0.15) transparent;
+}
+
+/* ─── Semantic component classes ─────────────────────────────────── */
+@layer components {
+  /* Shared surface */
+  .salom-surface {
+    @apply rounded-2xl border border-emerald-200/80 bg-white shadow-sm;
+  }
+
+  /* Field label + input pattern */
+  .salom-field-label {
+    @apply block text-xs font-medium text-slate-600;
+  }
+
+  .salom-input {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900
+      transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200/60 focus:outline-none;
+  }
+
+  /* Brand gradient text */
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #0d5a2e 0%, #166d3a 45%, #89f336 100%);
+  }
+
+  /* Hero mesh overlay */
+  .salom-hero-mesh {
+    @apply pointer-events-none absolute inset-0 overflow-hidden;
+    background:
+      linear-gradient(125deg, transparent 30%, rgba(137, 243, 54, 0.08) 55%, rgba(13, 90, 46, 0.06) 100%),
+      repeating-linear-gradient(
+        -12deg,
+        transparent,
+        transparent 40px,
+        rgba(226, 232, 240, 0.4) 40px,
+        rgba(226, 232, 240, 0.4) 41px
+      );
+  }
+}
+
+/* ─── Dark mode: salom-input override ───────────────────────────── */
+:root[data-theme="dark"] .salom-input {
+  background-color: var(--surface-raised) !important;
+  border-color: var(--border) !important;
+  color: var(--foreground) !important;
+}
+
+:root[data-theme="dark"] .salom-field-label {
+  color: var(--muted) !important;
+}
+
+/* ─── Dark mode: Card base ───────────────────────────────────────── */
+:root[data-theme="dark"] .salom-card-base {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4) !important;
+}
