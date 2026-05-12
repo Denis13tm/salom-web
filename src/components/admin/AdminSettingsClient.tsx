@@ -316,6 +316,13 @@ export function AdminSettingsClient() {
             placeholder="Masalan: Chorak yakuni: {{DATE}}"
           />
         </label>
+        <p className="mt-4 text-sm text-slate-600">
+          Reklama bannerlari va karusel intervali:{" "}
+          <Link href="/admin/champions-banners" className="font-semibold text-violet-800 underline">
+            Chempionlar bannerlari
+          </Link>
+          .
+        </p>
         <div className="mt-3">
           <Button
             type="button"

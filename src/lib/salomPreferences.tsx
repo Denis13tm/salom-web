@@ -52,6 +52,7 @@ const messages = {
     reports: "Hisobotlar",
     audit: "Audit",
     leaderboardNav: "Chempionlar reytingi",
+    championsBannersNav: "Chempionlar bannerlari",
     xpAdminNav: "Haydovchi XP",
 
     /* ---------- Operator sidebar sections ---------- */
@@ -176,6 +177,7 @@ const messages = {
     reports: "Отчёты",
     audit: "Аудит",
     leaderboardNav: "Таблица лидеров",
+    championsBannersNav: "Баннеры чемпионов",
     xpAdminNav: "XP водителей",
 
     /* ---------- Operator sidebar sections ---------- */
@@ -300,6 +302,7 @@ const messages = {
     reports: "Reports",
     audit: "Audit",
     leaderboardNav: "Champions leaderboard",
+    championsBannersNav: "Champions ad banners",
     xpAdminNav: "Driver XP",
 
     /* ---------- Operator sidebar sections ---------- */

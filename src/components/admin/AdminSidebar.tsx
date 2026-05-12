@@ -55,6 +55,7 @@ const groups: Group[] = [
       { href: "/admin/audit", labelKey: "audit" },
       { href: "/admin/leaderboard", labelKey: "leaderboardNav" },
       { href: "/admin/xp", labelKey: "xpAdminNav" },
+      { href: "/admin/champions-banners", labelKey: "championsBannersNav" },
       { href: "/admin/settings", labelKey: "settings" },
     ],
   },
