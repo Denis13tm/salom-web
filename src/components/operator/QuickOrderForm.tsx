@@ -16,7 +16,7 @@ import {
 } from "@/lib/salomOperator";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import {
   fetchPublicServiceZones,
   type PublicServiceZone,
@@ -46,7 +46,7 @@ export function QuickOrderForm() {
 
   const selectedZone = zonesHint?.find((x) => x.id === zoneId);
   const profile = selectedZone?.pricingProfile ?? null;
-  const rings = profile?.rings ?? [];
+  const rings = useMemo(() => profile?.rings ?? [], [profile]);
   const selectedRing = rings.find((r) => r.id === pricingRingId) ?? rings[0] ?? null;
 
   useEffect(() => {

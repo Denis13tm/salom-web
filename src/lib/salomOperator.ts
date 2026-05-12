@@ -119,7 +119,7 @@ async function postExchangeOperator(operatorId: string): Promise<Tokens> {
 export async function ensureOperatorSessionFresh(): Promise<{ changed: boolean }> {
   if (typeof window === "undefined") return { changed: false };
 
-  let access = localStorage.getItem(BEARER_KEY)?.trim() ?? "";
+  const access = localStorage.getItem(BEARER_KEY)?.trim() ?? "";
   const refresh = localStorage.getItem(OPERATOR_REFRESH_KEY)?.trim() ?? "";
 
   const accessLooksValid = access && !isJwtAccessLikelyExpired(access);

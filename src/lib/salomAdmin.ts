@@ -88,7 +88,7 @@ async function postExchangeAdmin(adminIdTrimmed: string): Promise<Tokens> {
 export async function ensureAdminSessionFresh(): Promise<{ changed: boolean }> {
   if (typeof window === "undefined") return { changed: false };
 
-  let access = localStorage.getItem(BEARER_KEY)?.trim() ?? "";
+  const access = localStorage.getItem(BEARER_KEY)?.trim() ?? "";
   const refresh = localStorage.getItem(ADMIN_REFRESH_KEY)?.trim() ?? "";
 
   const accessLooksValid = access && !isJwtAccessLikelyExpired(access);

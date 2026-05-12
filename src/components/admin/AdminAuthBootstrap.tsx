@@ -16,7 +16,6 @@ const REFRESH_MS = 120_000;
 export function AdminAuthBootstrap() {
   useEffect(() => {
     let cancelled = false;
-    let interval: ReturnType<typeof setInterval> | undefined;
 
     const run = async () => {
       if (cancelled) return;
@@ -26,11 +25,11 @@ export function AdminAuthBootstrap() {
     };
 
     void run();
-    interval = setInterval(() => void run(), REFRESH_MS);
+    const interval = setInterval(() => void run(), REFRESH_MS);
 
     return () => {
       cancelled = true;
-      if (interval) clearInterval(interval);
+      clearInterval(interval);
     };
   }, []);
 

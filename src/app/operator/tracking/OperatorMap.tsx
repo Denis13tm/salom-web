@@ -258,6 +258,7 @@ export function OperatorMap({ rows, focus }: Props) {
     };
     if (m.isStyleLoaded()) go();
     else m.once("load", go);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- primitives only; `focus` reference changes too often
   }, [focus.lng, focus.lat, focus.zoom, rows.length]);
 
   useEffect(() => {

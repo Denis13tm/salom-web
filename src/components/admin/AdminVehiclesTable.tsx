@@ -22,7 +22,7 @@ export function AdminVehiclesTable() {
   const [q, setQ] = useState("");
   const qRef = useRef(q);
   qRef.current = q;
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   const load = useCallback(async () => {
     setErr(null);

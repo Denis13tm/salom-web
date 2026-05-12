@@ -36,7 +36,7 @@ export function AdminLeaderboardClient() {
   const [err, setErr] = useState<string | null>(null);
   const [zones, setZones] = useState<ServiceZoneRow[]>([]);
   const [lbZoneId, setLbZoneId] = useState("");
-  const lbPeriod: "month" = "month";
+  const lbPeriod = "month" as const;
   const [lbData, setLbData] = useState<AdminLeaderboardPayload | null>(null);
   const [lbLoading, setLbLoading] = useState(false);
   const [edit, setEdit] = useState<null | { driverId: string; displayName: string; score: string }>(null);

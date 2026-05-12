@@ -49,7 +49,7 @@ function money(v: string | number | null | undefined): string {
 
 export function OperatorOrdersTable() {
   const [bearer, setBearer] = useState("");
-  const [opId, setOpId] = useState(defaultOperatorId);
+  const [opId] = useState(defaultOperatorId);
   const [all, setAll] = useState<Row[]>([]);
   const [err, setErr] = useState<string | null>(null);
   const [q, setQ] = useState("");

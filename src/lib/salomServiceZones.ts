@@ -1,5 +1,5 @@
 import { SALOM_API_URL } from "./salomOperator";
-import { getStoredServiceZoneId, setStoredServiceZoneId } from "./salomOperator";
+import { getStoredServiceZoneId } from "./salomOperator";
 
 export type PublicServiceZone = {
   id: string;

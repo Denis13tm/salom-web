@@ -80,8 +80,9 @@ export function AuthedDocImage({
       />
     );
   }
-  // eslint-disable-next-line @next/next/no-img-element -- blob URL, Next/Image remotePatterns kerak emas
+   
   return (
+    // eslint-disable-next-line @next/next/no-img-element -- blob: URL from authenticated fetch; next/image remotePatterns not applicable
     <img
       src={url}
       alt={alt}

@@ -13,7 +13,7 @@
     "prestart": "node -e \"if (!process.env.CI && !process.env.SKIP_WEB_PRESTART) console.warn('\\n[Salom web] Dastur: npm run dev (HMR, qayta ishga tushirish shart emas).\\n            Production: npm start - kod o\\'zgartirsangiz avval npm run build, bo\\'lmasa Internal Error.\\n')\"",
     "start": "next start -p 3001",
     "start:prod": "npm run clean && npm run build && next start -p 3001",
-    "lint": "eslint"
+    "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "maplibre-gl": "^5.23.0",
